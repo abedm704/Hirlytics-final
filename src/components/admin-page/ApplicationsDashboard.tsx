@@ -53,7 +53,9 @@ const ApplicationsDashboard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState("");
-  const [statusFilter] = useState("All");
+  
+  // FIX: Change to allow status filter to be used later
+  const [statusFilter, setStatusFilter] = useState("All"); 
 
   useEffect(() => {
     const fetchApplications = async () => {
@@ -89,8 +91,6 @@ const ApplicationsDashboard = () => {
     fetchApplications();
   }, []);
 
-  // Handle status change
-
   // Filter applications based on search term and status
   useEffect(() => {
     let results = applications;
@@ -107,15 +107,13 @@ const ApplicationsDashboard = () => {
       );
     }
 
-    // Filter by status
+    // Filter by status (This condition is now functional if setStatusFilter is used)
     if (statusFilter !== "All") {
       results = results.filter((app) => app.status === statusFilter);
     }
 
     setFilteredApplications(results);
   }, [searchTerm, statusFilter, applications]);
-
-  // Function to determine status style
 
   // Format date function
   const formatDate = (dateString: string) => {
