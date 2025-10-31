@@ -1,4 +1,4 @@
-import { AppointmentData } from '../App';
+import { AppointmentData } from '../../App'; // 👈 CORRECTED PATH
 import HirlyticsLogo from './Hirlyticslogo';
 import ProgressStepper from './ProgressStepper';
 
