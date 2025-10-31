@@ -12,6 +12,7 @@ import {
   faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 
+// FIX 1: ADD 'salaryRange' and 'experienceLevel' to the interface
 export interface JobPostingData {
   // Company Details
   companyName: string;
@@ -41,6 +42,10 @@ export interface JobPostingData {
   additionalCompensation: string[];
   benefits: string[];
   experienceRequired: string;
+  
+  // 🔥 FIX FOR TS2339: Missing Properties
+  salaryRange: string;
+  experienceLevel: string;
 
   // Candidate Requirements
   numberOfHires: string;
@@ -82,6 +87,11 @@ const PostJobSteps: React.FC = () => {
     additionalCompensation: [],
     benefits: [],
     experienceRequired: "",
+    
+    // 🔥 FIX FOR TS2353: Initialize New Properties
+    salaryRange: "",
+    experienceLevel: "",
+
     numberOfHires: "",
     hireUrgency: "",
     availabilityNeeded: "",
@@ -209,6 +219,10 @@ const PostJobSteps: React.FC = () => {
           additionalCompensation: [],
           benefits: [],
           experienceRequired: "",
+          // Resetting the new fields too
+          salaryRange: "",
+          experienceLevel: "",
+          
           numberOfHires: "",
           hireUrgency: "",
           availabilityNeeded: "",
